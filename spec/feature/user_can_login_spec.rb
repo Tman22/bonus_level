@@ -34,4 +34,17 @@ RSpec.feature "user can login to account" do
     expect(page).to have_content "WELCOME!"
 
   end
+
+  scenario "user sees error with invalid password or name" do
+    user = create(:user)
+
+    visit login_path
+    fill_in "Name", with: user.name
+    fill_in "Password", with: "darkness...unending"
+    click_on "Login"
+
+    current_path.should == login_path
+    expect(page).to have_content "User name or password are invalid"
+  end
+
 end

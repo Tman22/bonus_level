@@ -4,15 +4,19 @@
   <%= render partial: "shared/errors", locals: { target: @user } %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <br>
 
   <%= f.label :image_path %>
   <%= f.text_field :image_path %>
+  <br>
 
   <%= f.label :password %>
   <%= f.password_field :password %>
+  <br>
 
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
+  <br>
 
   <%= f.submit %>
 <% end %>
