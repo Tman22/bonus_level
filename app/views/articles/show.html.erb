@@ -1,0 +1,18 @@
+<h1><%= @article.title %></h1>
+<br>
+<h2><%= @article.user.name %></h2>
+
+<% @article.tags.each do |tag| %>
+  <h3> <%= tag.title %> </h3>
+<%#= Need to add link to tags  %>
+
+<% end %>
+<br>
+<%= @article.article_image %>
+<br>
+<div class="body">
+  <p>
+    <%= @article.body %>
+  </p>
+
+</div>

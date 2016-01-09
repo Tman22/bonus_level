@@ -1,0 +1,20 @@
+<h1> Create a new Article</h1>
+<%= form_for @article do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= f.label :article_image %>
+  <%= f.text_field :article_image %>
+  <br>
+
+  <%= f.label :body %>
+  <%= f.text_area :body  %>
+  <br>
+
+  <%= f.label :tags %>
+  <%= f.text_field :tags %>
+
+  <%= f.submit %>
+
+<% end  %>

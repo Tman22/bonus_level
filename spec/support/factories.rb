@@ -4,6 +4,28 @@ FactoryGirl.define do
     password
     image_path "http://bamboozo.com/sites/default/files/styles/600x1000/public/preview_16.jpg"
     role 0
+    factory :user_with_articles do
+      transient do
+        article_count 2
+      end
+      after(:create) do |user, evaluator|
+        create_list(:article, evaluator.article_count, user: user)
+      end
+    end
+  end
+
+  factory :article do
+    title
+    body
+    article_image "http://bamboozo.com/sites/default/files/styles/600x1000/public/preview_16.jpg"
+  end
+
+  sequence :title do |n|
+    "title#{n}"
+  end
+
+  sequence :body do |n|
+    "body#{n}"
   end
 
   sequence :name do |n|
@@ -20,5 +42,6 @@ FactoryGirl.define do
     image_path "http://bamboozo.com/sites/default/files/styles/600x1000/public/preview_16.jpg"
     role 1
   end
+
 
 end
