@@ -8,11 +8,9 @@ RSpec.feature "user can login to account" do
     click_on "Login to Account"
 
     current_path.should == login_path
-
     fill_in "Name", with: user.name
     fill_in "Password", with: user.password
     click_on "Login"
-
     current_path.should == user_path(user)
     expect(page).to have_content "Logged in"
     expect(page).to have_content user.name

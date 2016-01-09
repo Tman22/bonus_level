@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:notice] = "Logged in"
-      redirect_to @user
+      if current_admin?
+        redirect_to admin_user_path(@user)
+      else
+        redirect_to user_path(@user)
+      end
     else
       flash.now[:alert] = "User name or password are invalid"
       render :new

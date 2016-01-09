@@ -3,4 +3,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :image_path, presence: true
   validates :password, presence: true
+
+  enum role: %w(default admin)
+
 end
