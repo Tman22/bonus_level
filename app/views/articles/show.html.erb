@@ -14,5 +14,8 @@
   <p>
     <%= @article.body %>
   </p>
-
 </div>
+
+<% if current_user.owns?(@article) %>
+<%= link_to "Edit", edit_article_path(@article) %>
+<% end %>

@@ -5,5 +5,11 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   has_many :articles
   enum role: %w(default admin)
+  # has_many :authored_articles, class_name: "Article", foreign_key: "author_id"
+  # has_many :likes
+  # has_many :articles, through: :likes
 
+  def owns?(article)
+    self.id == article.user_id
+  end
 end

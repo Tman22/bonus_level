@@ -15,11 +15,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    if current_user.id == @article.user_id
-      render :user_show
-    else
-      render :show
-    end
   end
 
   def index

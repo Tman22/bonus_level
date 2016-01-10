@@ -1,3 +1,9 @@
-<h1> <%= current_user.name %> </h1>
+
+<%= link_to "Home", current_user %>
 <%= link_to "Log Out", logout_path, method: :delete %>
+
+
+
+<h1> <%= current_user.name %> </h1>
+
 <%= link_to "Create Article", new_article_path %>
