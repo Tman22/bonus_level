@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   # resource :user rachel is sure.
   namespace :admin do
-    resources :users, only: [:show]
+    resources :users
   end
 
   resources :articles

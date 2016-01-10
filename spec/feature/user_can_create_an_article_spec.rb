@@ -13,7 +13,7 @@ RSpec.feature "user_can_create_an_article" do
     fill_in "Title", with: "Title"
     fill_in "Body", with: "Something"
     fill_in "Article image", with: "http://bamboozo.com/sites/default/files/styles/600x1000/public/preview_16.jpg"
-    fill_in "Tags", with: "Ruby"
+    fill_in "Tag list", with: "Ruby"
     click_on "Create Article"
     current_path.should == article_path(Article.first)
     expect(page).to have_content "Title"

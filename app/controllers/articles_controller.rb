@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.new(article_params)
     if @article.save
-      save_tags
+      # save_tags
       redirect_to @article
     else
       render :new
@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
+      # save_tags
       redirect_to @article
     else
       render :edit
@@ -35,8 +36,10 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+    article = Article.find(params[:id])
+    # tags = ArticleTag.where(article_id: params[:id])
+    # ArticleTag.delete(tags)
+    article.destroy
     redirect_to articles_path
   end
 
@@ -45,7 +48,8 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title,
                                     :body,
-                                    :article_image)
+                                    :article_image,
+                                    :tag_list)
   end
 
   def save_tags
