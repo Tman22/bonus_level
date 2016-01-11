@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20160109205818) do
 
   add_index "article_tags", ["article_id"], name: "index_article_tags_on_article_id", using: :btree
   add_index "article_tags", ["tag_id"], name: "index_article_tags_on_tag_id", using: :btree
-
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.string   "article_image"

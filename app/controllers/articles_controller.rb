@@ -36,10 +36,11 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    article = Article.find(params[:id])
-    # tags = ArticleTag.where(article_id: params[:id])
-    # ArticleTag.delete(tags)
-    article.destroy
+    # byebug
+    @article = Article.find(params[:id])
+    tags = ArticleTag.where(article_id: params[:id])
+    ArticleTag.destroy(tags)
+    @article.destroy
     redirect_to articles_path
   end
 
